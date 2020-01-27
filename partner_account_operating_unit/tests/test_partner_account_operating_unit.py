@@ -2,12 +2,14 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 from odoo.addons.account.tests.account_test_classes import AccountingTestCase
+from odoo.tests import tagged
 
 
-class TestAccountOperatingUnit(AccountingTestCase):
+@tagged('post_install', '-at_install')
+class TestPartnerAccountOperatingUnit(AccountingTestCase):
 
     def setUp(self):
-        super(TestAccountOperatingUnit, self).setUp()
+        super(TestPartnerAccountOperatingUnit, self).setUp()
         self.res_users_model = self.env['res.users']
         self.aml_model = self.env['account.move.line']
         self.invoice_model = self.env['account.invoice']
